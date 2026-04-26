@@ -10,7 +10,7 @@ void devInit(void)
 	KM_LCD_Write_Cmd(0x81);
 	KM_LCD_Write_Str("ENV DATA LOGGER");
 	HAL_Delay(3000);
-	KM_LCD_Write_Cmd(0x01); //CLEAR SCREEN CMD
+	KM_LCD_Write_Cmd(0x01); 
 	KM_LCD_Write_Cmd(0x81);
 	KM_LCD_Write_Str("TEMP MONITORING");
 	KM_LCD_Write_Cmd(0xC0);
