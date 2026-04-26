@@ -9,8 +9,8 @@ short timeout_flag=0;
 extern UART_HandleTypeDef huart6;
 int wifi_flag=0;
 
-#define WIFI_SSID	"No Devices Found..."
-#define WIFI_PASSWORD	"24681012"
+#define WIFI_SSID	"Your_Hotspot_Name"
+#define WIFI_PASSWORD	"Your_Password"
 
 short int wifi_feedback(char sub[])
 {
@@ -54,12 +54,12 @@ int wifi_init(void)
 	{
 		if(test==1)
 		{
-			HAL_UART_Transmit(&huart6,(uint8_t *)"AT\r\n",sizeof("AT\r\n"),100); //basic communication
+			HAL_UART_Transmit(&huart6,(uint8_t *)"AT\r\n",sizeof("AT\r\n"),100); 
 			wifi_flag=wifi_feedback("OK");
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 				KM_LCD_Write_Cmd(0xCA);
 				KM_LCD_Write_Str("      ");
 				KM_LCD_Write_Cmd(0xc0);
@@ -70,8 +70,8 @@ int wifi_init(void)
 			}
 			else if(wifi_flag==FAIL)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF green LED
 				KM_LCD_Write_Cmd(0xCA);
 				KM_LCD_Write_Str("T.O: ");
 				KM_LCD_Write_Cmd(0xcF);
@@ -93,8 +93,8 @@ int wifi_init(void)
 			wifi_flag=wifi_feedback("WIFI CONNECTED");
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 				KM_LCD_Write_Cmd(0xc1);
 				KM_LCD_Write_Str(".");
 				HAL_Delay(500);
@@ -112,8 +112,8 @@ int wifi_init(void)
 		if(test==3)
 		{
 			HAL_UART_Transmit(&huart6,(uint8_t *)"AT+CWMODE=3\r\n",sizeof("AT+CWMODE=3c\r\n"),100);
-			HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-			HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+			HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+			HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 			KM_LCD_Write_Cmd(0xc2);
 			KM_LCD_Write_Str(".");
 			HAL_Delay(500);
@@ -125,8 +125,8 @@ int wifi_init(void)
 			wifi_flag=wifi_feedback("OK");		
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 				KM_LCD_Write_Cmd(0xCA);
 				KM_LCD_Write_Str("      ");
 				KM_LCD_Write_Cmd(0xc3);
@@ -136,8 +136,8 @@ int wifi_init(void)
 			}
 			else if(wifi_flag==FAIL)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF green LED
 				KM_LCD_Write_Cmd(0xCA);
 				KM_LCD_Write_Str("T.O: ");
 				KM_LCD_Write_Cmd(0xCF);
@@ -157,8 +157,8 @@ int wifi_init(void)
 			wifi_flag=wifi_feedback("OK");		
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 				KM_LCD_Write_Cmd(0xc4);
 				KM_LCD_Write_Str(".");
 				HAL_Delay(500);
@@ -171,8 +171,8 @@ int wifi_init(void)
 			wifi_flag=wifi_feedback("OK");		
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 				KM_LCD_Write_Cmd(0xc5);
 				KM_LCD_Write_Str(".");
 				HAL_Delay(500);
@@ -186,8 +186,8 @@ int wifi_init(void)
 			wifi_flag=wifi_feedback("OK");		
 			if(wifi_flag==SUCCESS)
 			{
-				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+				HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+				HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 
 				KM_LCD_Write_Cmd(0xc6);
 				KM_LCD_Write_Str(".");
@@ -204,14 +204,14 @@ int8_t checkInt(void)
 	wifi_flag=wifi_feedback("STATUS:5"); //STATUS:5 -> DISCONNECTION
 	if(wifi_flag==SUCCESS)
 	{
-		HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON red LED
-		HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF green LED
+		HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON red LED
+		HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF green LED
 		return STATUS_ERROR;
 	}
 	else if(wifi_flag==FAIL)
 	{
-		HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit postion to turn OFF red LED
-		HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit postion to turn ON green LED
+		HAL_GPIO_WritePin(GPIOB, RED_LED_Pin, GPIO_PIN_SET); //set 13th bit position to turn OFF red LED
+		HAL_GPIO_WritePin(GPIOB, GREEN_LED_Pin, GPIO_PIN_RESET); //clear 13th bit position to turn ON green LED
 	}
 	return SUCCESS;
 }
